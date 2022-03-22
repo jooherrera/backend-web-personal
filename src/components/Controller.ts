@@ -10,7 +10,8 @@ class ControllerWebsite {
   addInfo = async (req: Request, res: Response) => {
     const info = {
       about: {
-        content: 'Hola mundo',
+        content:
+          'Soy un desarrollador que le encanta estudiar y poner en práctica sus conocimientos, resolviendo problemas con tecnologias como: NodeJs, React, MongoDB.',
       },
       resume: {
         content: {
@@ -18,7 +19,7 @@ class ControllerWebsite {
             title: 'Jose Herrera',
             subTitle: 'Fullsta developer js',
             about:
-              'Soy un desarrollador que le encanta estudiar y poner en práctica sus conocimientos, resolviendo problemas \tcon tecnologias como: NodeJs, React, MongoDB.',
+              'Soy un desarrollador que le encanta estudiar y poner en práctica sus conocimientos, resolviendo problemas con tecnologias como: NodeJs, React, MongoDB.',
           },
           sectionContact: {
             phone: '011-27748848',

@@ -6,7 +6,9 @@ class StoreMongo {
   }
 
   async addInfo(info: any) {
-    return await new infoModel(info).save()
+    const newInfo = new infoModel(info)
+
+    return await newInfo.save()
   }
 }
 

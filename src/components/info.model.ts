@@ -48,7 +48,6 @@ const ResumeMainItems = new Schema(
 // ---------------------------------------------------
 
 const InfoSchema = new Schema({
-  _id: { type: Object },
   about: {
     content: { type: String, required: true },
   },
