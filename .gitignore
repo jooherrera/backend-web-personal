@@ -3,3 +3,6 @@ node_modules/
 .env.development
 .npmrc
 mock.js
+logs
+test
+dist
