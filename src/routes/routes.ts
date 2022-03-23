@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
 })
 router.get('/data', Controller.getInfo)
 
-// router.get('/adddata', Controller.addInfo)
+router.post('/sendmail', Controller.sendMail)
+
+// router.get('/seed', Controller.addInfo)
 
 export { router }

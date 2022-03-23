@@ -8,4 +8,9 @@ export const envVariables = {
   PORT: process.env.PORT,
   DATABASE: process.env.DATABASE,
   MONGO_URI: process.env.MONGO_URI,
+  HOSTMAILER: process.env.HOSTMAILER,
+  PORTMAILER: process.env.PORTMAILER,
+  USERMAILER: process.env.USERMAILER,
+  PASSMAILER: process.env.PASSMAILER,
+  ADMIN_MAIL: process.env.ADMIN_MAIL,
 }

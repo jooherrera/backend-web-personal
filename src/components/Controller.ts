@@ -1,10 +1,15 @@
+import { mailOptionsToAdmin, mailOptionsToUser, sendAdminMail } from '@config/nodemailer'
 import { Request, Response } from 'express'
 import StoreMongo from './Store.mongo'
 
 class ControllerWebsite {
   getInfo = async (req: Request, res: Response) => {
-    const data = await StoreMongo.fetchInfo()
-    res.status(200).json(data)
+    try {
+      const data = await StoreMongo.fetchInfo()
+      res.status(200).json(data)
+    } catch (error) {
+      res.sendStatus(400)
+    }
   }
 
   addInfo = async (req: Request, res: Response) => {
@@ -118,6 +123,17 @@ class ControllerWebsite {
 
     await StoreMongo.addInfo(info)
     res.status(200).send('OK')
+  }
+
+  sendMail = async (req: Request, res: Response) => {
+    const { name, mail, message } = req.body
+
+    const optionsAdmin = mailOptionsToAdmin(mail, name, message)
+    const optionsUser = mailOptionsToUser(mail, name)
+    sendAdminMail(optionsAdmin)
+    sendAdminMail(optionsUser)
+
+    res.sendStatus(202)
   }
 }
 
