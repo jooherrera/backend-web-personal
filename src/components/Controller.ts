@@ -1,11 +1,15 @@
 import { mailOptionsToAdmin, mailOptionsToUser, sendAdminMail } from '@config/nodemailer'
+import { makePdf } from '@config/pdf'
 import { Request, Response } from 'express'
 import StoreMongo from './Store.mongo'
+import fs from 'fs'
+import path from 'path'
 
 class ControllerWebsite {
   getInfo = async (req: Request, res: Response) => {
     try {
       const data = await StoreMongo.fetchInfo()
+
       res.status(200).json(data)
     } catch (error) {
       res.sendStatus(400)
@@ -134,6 +138,20 @@ class ControllerWebsite {
     sendAdminMail(optionsUser)
 
     res.sendStatus(202)
+  }
+
+  downloadCV = async (req: Request, res: Response) => {
+    try {
+      // console.log('EMPIEZO')
+      const fileName = 'JoseHerrera-CV.pdf'
+      const document = `${path.resolve()}/${fileName}`
+
+      // // await makePdf(fileName)
+      // console.log(document)
+      res.download(document)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
