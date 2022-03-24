@@ -146,7 +146,7 @@ class ControllerWebsite {
       const fileName = 'JoseHerrera-CV.pdf'
       const document = `${path.resolve()}/${fileName}`
       if (!fs.existsSync(document)) {
-        await makePdf(fileName)
+        await makePdf(document)
       }
       res.download(document)
     } catch (error: any) {
