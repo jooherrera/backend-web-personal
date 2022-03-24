@@ -5,9 +5,10 @@ import { connectToDB, Logg } from 'back-tools'
 import { exit } from 'process'
 import { router } from './routes/routes'
 import cors from 'cors'
+import { options } from '@config/cors'
 const app = express()
 
-app.use(cors())
+app.use(cors(options))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 

@@ -14,4 +14,5 @@ export const envVariables = {
   PASSMAILER: process.env.PASSMAILER,
   ADMIN_MAIL: process.env.ADMIN_MAIL,
   FRONT_URL: process.env.FRONT_URL,
+  ALLOWED_ORIGIN: process.env.ALLOWED_ORIGIN,
 }
