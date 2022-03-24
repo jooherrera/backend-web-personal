@@ -1,5 +1,4 @@
 import puppeteer from 'puppeteer'
-import fs from 'fs-extra'
 import { envVariables } from './constantes'
 
 export const makePdf = async (fileName: string) => {

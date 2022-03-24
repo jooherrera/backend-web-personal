@@ -2,7 +2,6 @@ import { mailOptionsToAdmin, mailOptionsToUser, sendAdminMail } from '@config/no
 import { makePdf } from '@config/pdf'
 import { Request, Response } from 'express'
 import StoreMongo from './Store.mongo'
-import fs from 'fs'
 import path from 'path'
 
 class ControllerWebsite {
@@ -142,12 +141,9 @@ class ControllerWebsite {
 
   downloadCV = async (req: Request, res: Response) => {
     try {
-      // console.log('EMPIEZO')
       const fileName = 'JoseHerrera-CV.pdf'
       const document = `${path.resolve()}/${fileName}`
-
       // // await makePdf(fileName)
-      // console.log(document)
       res.download(document)
     } catch (error) {
       console.log(error)
