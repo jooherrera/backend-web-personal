@@ -8,7 +8,7 @@ import cors from 'cors'
 import { options } from '@config/cors'
 const app = express()
 
-app.use(cors(options))
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
