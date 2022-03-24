@@ -3,6 +3,8 @@ import { makePdf } from '@config/pdf'
 import { Request, Response } from 'express'
 import StoreMongo from './Store.mongo'
 import path from 'path'
+import { Logg } from 'back-tools'
+import fs from 'fs'
 
 class ControllerWebsite {
   getInfo = async (req: Request, res: Response) => {
@@ -143,10 +145,12 @@ class ControllerWebsite {
     try {
       const fileName = 'JoseHerrera-CV.pdf'
       const document = `${path.resolve()}/${fileName}`
-      // // await makePdf(fileName)
+      if (!fs.existsSync(document)) {
+        await makePdf(fileName)
+      }
       res.download(document)
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      Logg(error.message).file()
     }
   }
 }
