@@ -15,7 +15,6 @@ const Admintransporter = createTransport({
 export const sendAdminMail = async (mailOptions: any) => {
   try {
     const resp = await Admintransporter.sendMail(mailOptions)
-    console.log(resp)
   } catch (error) {
     Logg('Problemas al enviar el mail').file()
   }
